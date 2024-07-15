@@ -1,8 +1,8 @@
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 export default function MyPage() {
   return (
-    <div>
+    <div className={styles.main}>
         MyPage
     </div>
   );
