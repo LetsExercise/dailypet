@@ -1,3 +1,23 @@
+@use 'scss-reset/reset';
+@import '../lib/styles/_palette.scss';
+
 body{
     background-color: #ffffff;
+    color: $black-color;
+    font-size: 16px;
+}
+
+button{
+    background-color: $main-color;
+    color: $black-color;
+
+    padding: 10px;
+    border-radius: 10px;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+a{
+    color: $main-color;
+    text-decoration: none;
 }
