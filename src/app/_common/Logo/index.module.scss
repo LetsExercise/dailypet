@@ -1,0 +1,17 @@
+@import "../../../lib/styles/palette.scss"; 
+// TODO: next.config.mjs의 perpendDate로 import 
+
+.logo{
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: $black-color;
+    :last-child {
+        color: $main-color;
+        font-size: 50px;
+        font-weight: 800;
+    }
+}
