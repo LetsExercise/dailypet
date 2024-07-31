@@ -21,7 +21,11 @@ export default function SignUpPage() {
       return;
     }
 
-    createUserWithEmailAndPassword(auth, String(data.email), String(data.type))
+    createUserWithEmailAndPassword(
+      auth,
+      String(data.email),
+      String(data.password)
+    )
       .then((userCredential) => {
         setDoc(doc(db, "users", userCredential.user.uid), {
           userId: String(data.name),
