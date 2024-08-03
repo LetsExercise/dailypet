@@ -4,7 +4,7 @@ import { FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.scss";
 import Logo from "../_common/Logo";
-import { signup } from "@/lib/firebase/authAPI";
+import { signup } from "@/lib/firebase/api/authAPI";
 
 // TODO: validation 작업. (react-hook-form 라이브러리 추천)
 export default function SignUpPage() {
