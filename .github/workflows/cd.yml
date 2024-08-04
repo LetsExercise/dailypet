@@ -1,0 +1,29 @@
+name: Deploy to Linux Server
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install sshpass
+      run: sudo apt-get install -y sshpass
+
+    - name: Deploy and start the project
+      env:
+        SSH_IP: ${{ secrets.SSH_IP }}
+        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+        SSH_PORT: ${{ secrets.SSH_PORT }}
+      run: |
+        sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no -p $SSH_PORT castberry@$SSH_IP << 'EOF'
+          cd /home/castberry/dailypet
+          git pull
+          npm install
+          pm2 restart dailypet-dev || pm2 start npm --name "dailypet-dev" -- run start
+        EOF
