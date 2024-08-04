@@ -46,7 +46,7 @@ export const useDocs = <T>(getQuery: (user: User | null) => Query | null, doc2Da
             console.log('get query: ', q);
             getDocs(q).then((querySnapshot) => {
                 const result: T[] = [];
-                querySnapshot.forEach((doc) => console.log(doc.id, " => ", doc.data()));
+                querySnapshot.forEach((doc) => result.push(doc2Data(doc)));
                 setData(result);
                 setIsLoading(false);
             });

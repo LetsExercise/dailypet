@@ -29,7 +29,7 @@ export const useDietOfDay = (day: Date) => useDocs<Diet>(
         id: doc.uid ,
         name: doc.data().name,
         calorie: doc.data().calorie,
-        imageURL: doc.data().imageURL,
+        imageURL: doc.data().imageURL+'?alt=media',
         datetime: doc.data().datetime.toDate()
     })
 ); 
