@@ -29,7 +29,7 @@ export const useDoc = <T, K>(defaultValue: K, getDocRef: (user: User | null) => 
 
     return { data, isLoading, isError };
 }
-export const useDocs = <T>(getQuery: (user: User | null) => Query | null, doc2Data: (doc: DocumentData) => T) => {
+export const useDocs = <T>(getQuery: (user: User | null) => Query | null, doc2Data: (doc: DocumentData, order?: number) => T) => {
     const [data, setData] = useState<T[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -46,7 +46,7 @@ export const useDocs = <T>(getQuery: (user: User | null) => Query | null, doc2Da
             console.log('get query: ', q);
             getDocs(q).then((querySnapshot) => {
                 const result: T[] = [];
-                querySnapshot.forEach((doc) => result.push(doc2Data(doc)));
+                querySnapshot.forEach((doc) => result.push(doc2Data(doc, result.length)));
                 setData(result);
                 setIsLoading(false);
             });
