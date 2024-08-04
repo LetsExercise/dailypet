@@ -1,5 +1,6 @@
 import DietLog from "./DietLog";
 import SleepLog from "./SleepLog";
+import WorkoutLog from "./WorkoutLog";
 
 export default function LogPage() {
   return (
@@ -7,9 +8,7 @@ export default function LogPage() {
       <h1>Log</h1>
       <SleepLog />
       <DietLog />
-      <div>
-        <h2>운동습관</h2>
-      </div>
+      <WorkoutLog />
     </div>
   );
 }
