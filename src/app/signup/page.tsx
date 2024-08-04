@@ -19,7 +19,7 @@ export default function SignUpPage() {
       return;
     }
 
-    signup(String(data.email), String(data.password), () =>
+    signup(String(data.email), String(data.password), String(data.name), () =>
       router.push("/login")
     );
   };

@@ -14,7 +14,7 @@ export const login = (email: string, password: string, onSuccess: () => void) =>
         alert("로그인에 실패했습니다. 다시 시도해주세요.");
     });
 };
-export const signup = (email: string, password: string, onSuccess: () => void) => {
+export const signup = (email: string, password: string, name: string, onSuccess: () => void) => {
     createUserWithEmailAndPassword(
       auth,
       String(email),
