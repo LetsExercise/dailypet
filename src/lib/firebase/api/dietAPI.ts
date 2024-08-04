@@ -11,8 +11,7 @@ interface Diet {
 }
 // TODO: react query를 쓰는게 더 좋을 수도
 export const useDietOfDay = (day: Date) => useDocs<Diet>(
-    () => {
-        const user = auth.currentUser;
+    (user) => {
         if (!user || !user.email) return null;
         
         const start = new Date(day.setHours(0, 0, 0, 0));

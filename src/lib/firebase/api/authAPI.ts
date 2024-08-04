@@ -52,8 +52,7 @@ ex)
 */
 export const useUserInfo = () => useDoc<UserInfo, UserInfo>(
     { email: "", name: "" },
-    () => {
-        const user = auth.currentUser;
+    (user) => {
         if (!user || !user.email) return null;
         return doc(db, "users", user.uid);
     },
