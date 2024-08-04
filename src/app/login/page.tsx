@@ -3,7 +3,7 @@
 import { FormEvent, use } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.scss";
-import { login } from "@/lib/firebase/authAPI";
+import { login } from "@/lib/firebase/api/authAPI";
 
 export default function LoginPage() {
   const router = useRouter();

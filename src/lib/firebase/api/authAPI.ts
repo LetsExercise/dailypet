@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from ".";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { auth, db } from "..";
+import { doc, DocumentData, setDoc } from "firebase/firestore";
+import { useDoc } from "../utils";
 
 export const login = (email: string, password: string, onSuccess: () => void) => {
     signInWithEmailAndPassword(auth, String(email), String(password))
@@ -14,7 +14,7 @@ export const login = (email: string, password: string, onSuccess: () => void) =>
         alert("로그인에 실패했습니다. 다시 시도해주세요.");
     });
 };
-export const signup = (email: string, password: string, onSuccess: () => void) => {
+export const signup = (email: string, password: string, name: string, onSuccess: () => void) => {
     createUserWithEmailAndPassword(
       auth,
       String(email),
@@ -50,39 +50,13 @@ ex)
     return <div>{userInfo.name}</div>;
   }
 */
-export const useUserInfo = () => {
-    const [userInfo, setUserInfo] = useState<UserInfo>({
-        email: "",
-        name: "",
-    });
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
-
-    const fetchUserInfo = async () => {
-      const user = auth.currentUser;
-      if(!user || !user.email) return null;
-      const docRef = doc(db, "users", user.uid)    
-
-      const docSnap = await getDoc(docRef)
-      if(docSnap.exists()) {
-        const result: UserInfo = { email: user.email, name: docSnap.data().userId };
-        return result; 
-      } else {
-          // TODO: 사용자 정보가 없으나 회원가입이 완료된 경우
-          return { email: user.email, name: "anonymous" };
-      }
+export const useUserInfo = () => useDoc<UserInfo, UserInfo>(
+    { email: "", name: "" },
+    (user) => {
+        if (!user || !user.email) return null;
+        return doc(db, "users", user.uid);
+    },
+    (doc: DocumentData) => {
+        return { email: auth.currentUser?.email || "", name: doc.data().userId };
     }
-
-    useEffect(() => {
-      fetchUserInfo().then((info) => {
-          if(info) {
-              setUserInfo(info);
-          }
-          setIsLoading(false);
-      }).catch((e) => {
-        setIsError(true)
-      });
-    }, [])
-
-    return { userInfo, isLoading, isError };
-}
+);
