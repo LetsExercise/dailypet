@@ -1,9 +1,8 @@
-import Image from 'next/image';
+"use client";
 
 import styles from "./page.module.scss";
 
 import HomeView from "./homeView";
-import mainView from "./main_view.png";
 
 
 export default function HomePage() {
@@ -56,10 +55,10 @@ export default function HomePage() {
             </div>
           </div>
           <div className={styles.home_view}>
-            <Image src={mainView} alt="mainView"></Image>
+            <HomeView></HomeView>
             <div className={styles.comment}>즐거운 아침이에요!</div>
           </div>
-          <HomeView></HomeView>
+          
         </div>
     </div>
   );

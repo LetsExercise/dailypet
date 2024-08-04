@@ -104,16 +104,24 @@
 
 // home view (character)
 .character {
+    position: relative;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     
     .forward {
-        position: absolute;    
+        position: absolute;  
+        z-index: 1;  
     }
 
     .background {
+        height: 40vw;
         position: static;
+
+        .floor {
+            position: relative;
+            top: 60%;
+        }
     }
 }
