@@ -3,6 +3,7 @@
 import styles from "./page.module.scss";
 
 import HomeView from "./homeView";
+import NavBar from "../_common/navBar";
 
 
 export default function HomePage() {
@@ -60,6 +61,7 @@ export default function HomePage() {
           </div>
           
         </div>
+      <NavBar></NavBar>
     </div>
   );
 }
