@@ -48,7 +48,8 @@ export default function NavBar() {
 
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none" onClick={clickMypage}>
           <circle cx="18" cy="10.5" r="6" stroke={nowPage === "mypage" ? mainColor : blackColor} stroke-width="3" stroke-linecap="round"/>
-          <path d="M8.00683 27.4808C8.99845 23.2903 13.1576 21 17.4639 21H18.5361C22.8424 21 27.0016 23.2903 27.9932 27.4808C28.185 28.2917 28.3375 29.1402 28.4233 30.0025C28.5054 30.8268 27.8284 31.5 27 31.5H9C8.17157 31.5 7.49463 30.8268 7.57666 30.0025C7.66246 29.1402 7.81495 28.2917 8.00683 27.4808Z" stroke="#2C2C2C" stroke-width="3" stroke-linecap="round"/>
+          <path d="M8.00683 27.4808C8.99845 23.2903 13.1576 21 17.4639 21H18.5361C22.8424 21 27.0016 23.2903 27.9932 27.4808C28.185 28.2917 28.3375 29.1402 28.4233 30.0025C28.5054 30.8268 27.8284 31.5 27 31.5H9C8.17157 31.5 7.49463 30.8268 7.57666 30.0025C7.66246 29.1402 7.81495 28.2917 8.00683 27.4808Z" 
+          stroke={nowPage === "mypage" ? mainColor : blackColor} stroke-width="3" stroke-linecap="round"/>
         </svg>
       </div>
     );

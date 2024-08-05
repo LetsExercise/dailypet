@@ -16,7 +16,7 @@ export default function HomePage() {
               <path d="M7.78949 7.86298H18.573C23.8145 7.86298 28.0636 12.112 28.0636 17.3535V28.1371H17.28C12.0386 28.1371 7.78949 23.888 7.78949 18.6465V7.86298Z" stroke="#A0D943" stroke-width="3"/>
               <path d="M16.7805 17.659L29.7106 29.296" stroke="#A0D943" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <span>129</span>
+              <span>Daily Pet</span>
             </div>
             <div className={styles.setting}>
               <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
@@ -35,21 +35,21 @@ export default function HomePage() {
               <div>행복해요</div>
             </div>
             <div className={styles.home_status_frame}>
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
-                  <circle cx="6" cy="6.5" r="5.5" stroke="#A0D943"/>
+              <div className={styles.home_status_info}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <circle cx="6" cy="6" r="6" fill="#A0D943"/>
                 </svg>
                 <span>수면</span>
               </div>
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
-                  <circle cx="6" cy="6.5" r="5.5" stroke="#A0D943"/>
+              <div className={styles.home_status_info}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <circle cx="6" cy="6" r="6" fill="#A0D943"/>
                 </svg>
                 <span>음식</span>
               </div>
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
-                  <circle cx="6" cy="6.5" r="5.5" stroke="#A0D943"/>
+              <div className={styles.home_status_info}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <circle cx="6" cy="6" r="6" fill="#A0D943"/>
                 </svg>
                 <span>활동</span>
               </div>
