@@ -4,7 +4,7 @@ import { FormEvent, use } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.scss";
 import { login } from "@/lib/firebase/api/authAPI";
-
+import Logo from "../_common/Logo";
 export default function LoginPage() {
   const router = useRouter();
 
@@ -18,9 +18,9 @@ export default function LoginPage() {
   };
 
   return (
-    <form className={styles.login_page} onSubmit={(e) => handleLogin(e)}>
-      <h1>Rainit</h1>
-      <div>
+    <form className={styles.main} onSubmit={(e) => handleLogin(e)}>
+      <Logo/>
+      <div className={styles.inputs}>
         <input type="email" name="email" placeholder="이메일을 입력하세요" />
         <input
           type="password"
@@ -28,7 +28,8 @@ export default function LoginPage() {
           placeholder="비밀번호를 입력하세요"
         />
       </div>
-      <button type="submit" className={styles.login_button}>
+  
+      <button type="submit" className={styles.button}>
         로그인
       </button>
     </form>
