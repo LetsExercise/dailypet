@@ -1,36 +1,60 @@
-.login_page {
-    width: 100%;
+// .login_page {
+//     width: 100%;
+//     height: 100vh;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+  
+//   .auth_title{
+  
+//   }
+  
+//   .login_page h1 {
+//     margin-top: 20px;
+//     margin-bottom: 20px;
+//     color: #4BBD5D;
+//   }
+  
+//   .login_space{
+  
+//   }
+  
+//   .login_button{
+//     display: flex;
+//     bottom: 60px;
+//     width: 80%;
+//     height: 50px;
+//     /* fill: #4BBD5D; */
+//     /* font: ; */
+//     color: #fff;
+//     background: #4BBD5D;
+//     border-radius: 12px;
+//     justify-content: center;
+//     align-items: center;
+//     position: absolute;
+//   }
+
+@import '../../lib/styles/_palette.scss';
+
+.main {
     height: 100vh;
+    padding: 100px 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+}
+
+.inputs{
+  margin: auto;
+  text-align: center;
+  input{
+    margin: 5px;
   }
-  
-  .auth_title{
-  
-  }
-  
-  .login_page h1 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: #4BBD5D;
-  }
-  
-  .login_space{
-  
-  }
-  
-  .login_button{
-    display: flex;
-    bottom: 60px;
-    width: 80%;
-    height: 50px;
-    /* fill: #4BBD5D; */
-    /* font: ; */
-    color: #fff;
-    background: #4BBD5D;
-    border-radius: 12px;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-  }
+}
+
+.button{
+  background-color: $light-gray-color;
+  width: 100%;
+}
