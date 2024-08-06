@@ -1,9 +1,28 @@
-import { PersonalGoals } from "@/app/_common/_util/storage";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "..";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, DocumentData, updateDoc } from "firebase/firestore";
+import { useDoc } from "../utils";
 
-export const postPersonalGoal = async (personalGoals: PersonalGoals) => {
+export interface PersonalGoals{
+    diet?: {
+        calories: number;
+        dietTime: {
+            label: string;
+            time: number;
+        }[];
+    };
+    sleep?: {
+        sleepEnd: number;
+        sleepStart: number;
+    };
+    workout?: {
+        week: number;
+        start: number;
+        end: number;
+    }[];
+}
+
+export const postPersonalGoals = async (personalGoals: PersonalGoals) => {
     if(!(personalGoals.workout || personalGoals.diet || personalGoals.sleep)){
         alert('목표를 입력해주세요.');
     }   
@@ -19,3 +38,13 @@ export const postPersonalGoal = async (personalGoals: PersonalGoals) => {
             });
     });
 }
+export const usePersonalGoals = () => useDoc<PersonalGoals, PersonalGoals>(
+    { workout: [], diet: {calories: 0, dietTime: []}, sleep: {sleepEnd: 0, sleepStart: 0} },
+    (user) => {
+        if (!user || !user.email) return null;
+        return doc(db, 'users', user.uid);
+    },
+    (doc: DocumentData) => {
+        return doc.data().personalGoals;
+    }
+);

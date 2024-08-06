@@ -1,3 +1,5 @@
+import { PersonalGoals } from "@/lib/firebase/api/personalGoalAPI";
+
 const initStorage = <T extends keyof StorageKey>(key: T, storage: Storage) => {
     const storageKey = `${key}`;
 
@@ -21,24 +23,7 @@ const initStorage = <T extends keyof StorageKey>(key: T, storage: Storage) => {
 
 export const personalGoalsStorage = initStorage("personalGoals", sessionStorage);
 
-export interface PersonalGoals{
-    diet?: {
-        calories: number;
-        dietTime: {
-            label: string;
-            time: number;
-        }[];
-    };
-    sleep?: {
-        sleepEnd: number;
-        sleepStart: number;
-    };
-    workout?: {
-        week: number;
-        start: number;
-        end: number;
-    }[];
-}
+
 interface StorageKey {
     personalGoals?: PersonalGoals;
 }

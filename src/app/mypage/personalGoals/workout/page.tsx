@@ -5,7 +5,7 @@ import { useState } from "react";
 import WorkoutEl from "./WorkoutEl";
 import { personalGoalsStorage } from "@/app/_common/_util/storage";
 import { timeFormat } from "../../utils";
-import { postPersonalGoal } from "@/lib/firebase/api/personalGoalAPI";
+import { postPersonalGoals } from "@/lib/firebase/api/personalGoalAPI";
 
 export default function WorkoutGoalPage() {
   const router = useRouter();
@@ -34,7 +34,7 @@ export default function WorkoutGoalPage() {
       ...personalGoalsStorage.get(),
       workout: workoutList,
     });
-    postPersonalGoal(personalGoalsStorage.get()!);
+    postPersonalGoals(personalGoalsStorage.get()!);
     personalGoalsStorage.set();
     router.push("/mypage");
   };
