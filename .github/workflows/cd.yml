@@ -2,9 +2,9 @@ name: Deploy to Linux Server
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
   pull_request:
-      branches: [ develop ]
+      branches: [ main ]
 
 jobs:
   deploy:
@@ -26,6 +26,7 @@ jobs:
         sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no -p $SSH_PORT castberry@$SSH_IP << 'EOF'
           cd /home/castberry/dailypet
           git pull
+          git checkout main
           npm install
           pm2 restart dailypet-dev || pm2 start npm --name "dailypet-dev" -- run start
         EOF

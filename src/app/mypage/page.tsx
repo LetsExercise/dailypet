@@ -9,8 +9,8 @@ export default function MyPage() {
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>error!</div>;
-  // if (!data) return <div></div>;
-
+  if (!data) return <div>Loading......</div>;
+  console.log("data: ", data);
   console.log(data);
   return (
     <div className={styles.main}>
