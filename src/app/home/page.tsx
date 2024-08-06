@@ -32,7 +32,7 @@ export default function HomePage() {
           <div className={styles.home_status}>
             <div className={styles.home_fill}>
               <div>오늘의 기분</div>
-              <div>행복해요</div>
+              <div className={styles.home_fill_text}>행복해요</div>
             </div>
             <div className={styles.home_status_frame}>
               <div className={styles.home_status_info}>
