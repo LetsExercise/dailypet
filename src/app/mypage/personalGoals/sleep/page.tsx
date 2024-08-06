@@ -4,19 +4,11 @@ import { MobileTimePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
+import { timeFormat } from "../../utils";
 
 export default function SleepGoalPage() {
   const router = useRouter();
 
-  /* 06:00 PM -> 1800 (number) */
-  const timeFormat = (time: string) => {
-    const [timeToken, meridiem] = time.split(" ");
-    const [hour, minute] = timeToken.split(":");
-
-    return meridiem === "PM"
-      ? (Number(hour) + 12) * 100 + Number(minute)
-      : Number(hour) * 100 + Number(minute);
-  };
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
