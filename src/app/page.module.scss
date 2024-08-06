@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    h3{
+        margin-top: 30px;
+        margin-bottom: 10px;
+        
+        font-weight: 700;
+        font-size: 20px;
+    }
+    button{
+        margin: 5px;
+        width: 250px;
+    }
+}
+.smallfont {
+    font-size: 12px;
+}
