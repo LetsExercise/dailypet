@@ -8,7 +8,7 @@ export default function Home() {
       <div />
       <div>
         <Logo />
-        <h3>수면, 음식, 운동</h3>
+        <h3>수면, 식단, 운동</h3>
         <div>나만의 펫과 함께</div>
         <div>오늘 하루를 활동해 볼까요?</div>
       </div>
