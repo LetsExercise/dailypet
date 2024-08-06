@@ -1,6 +1,8 @@
 @use '../../lib/styles/palette' as *;
 
-
+.fakeEl{
+    height: 62px;
+}
 .navbar {
     display: flex;
     padding: 12px 60px;
@@ -8,9 +10,8 @@
     align-items: center;
     width: 390px;
 
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    
     
     border: 1px solid $light-gray-color;
     background-color: $white-color;
