@@ -24,34 +24,6 @@
     line-height: normal;
 }
 
-.top_bar {
-    display: flex;
-    width: 334px;
-    height: 31px;
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-    
-    color: $main-color;
-    font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-
-    .pay {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-    }
-    
-    .setting {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-}
-
 .home_status {
     display: flex;
     padding: 0px 20px;
