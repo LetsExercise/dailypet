@@ -9,7 +9,7 @@ import styles from './page.module.scss'
 import Header from "../_common/header";
 import NavBar from "../_common/navBar";
 import { useState } from "react";
-
+import axios from "axios";
 
 export function logInput() {
   console.log("log input select");
@@ -21,8 +21,23 @@ export function logInput() {
   )
 }
 
-export default function LogPage() {
+export default async function LogPage() {
   const [ score, setScore ] = useState(100);
+
+  // /////
+  // try {
+  //   const response_score = await axios.post(
+  //     'https://castberry.kr:3650/api/open', {
+  //       "goal": {},
+  //       "status": {},
+  //     }
+  //   );
+  //   setScore(JSON.parse(response_score.data).score);
+  // } catch (error) {
+  //   console.error(error);
+  // }
+
+  /////
   return (
     <div>
       <div className={styles.log_frame}>
