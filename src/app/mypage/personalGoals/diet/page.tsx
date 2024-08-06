@@ -5,6 +5,7 @@ import DietEl from "./DietEl";
 import { useRouter } from "next/navigation";
 import { formName } from "./formName";
 import { timeFormat } from "../../utils";
+import { personalGoalsStorage } from "@/app/_common/_util/storage";
 
 export default function DietGoalPage() {
   const [dietElList, setDietElList] = useState<JSX.Element[]>([]);
@@ -19,17 +20,19 @@ export default function DietGoalPage() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const calories = formData.get(formName.calories);
+    const calories = Number(formData.get(formName.calories));
     const dietList = dietElList.map((dietEl) => {
-      const label = formData.get(formName.label(dietEl.props.index));
+      const label = String(formData.get(formName.label(dietEl.props.index)));
       const time = timeFormat(
         String(formData.get(formName.time(dietEl.props.index)))
       );
       return { label, time };
     });
 
-    // TODO: API 호출
-    console.log(calories, dietList);
+    personalGoalsStorage.set({
+      ...personalGoalsStorage.get(),
+      diet: { calories, dietTime: dietList },
+    });
     router.push("/mypage/personalGoals/workout");
   };
 

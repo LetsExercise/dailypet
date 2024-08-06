@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 import { timeFormat } from "../../utils";
+import { personalGoalsStorage } from "@/app/_common/_util/storage";
 
 export default function SleepGoalPage() {
   const router = useRouter();
@@ -16,8 +17,10 @@ export default function SleepGoalPage() {
     const sleepStart = timeFormat(String(formData.get("sleepStart")));
     const sleepEnd = timeFormat(String(formData.get("sleepEnd")));
 
-    //TODO: API 호출
-    console.log(sleepStart, sleepEnd);
+    personalGoalsStorage.set({
+      ...personalGoalsStorage.get(),
+      sleep: { sleepStart, sleepEnd },
+    });
     router.push("/mypage/personalGoals/diet");
   };
   return (

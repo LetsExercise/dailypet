@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import WorkoutEl from "./WorkoutEl";
+import { personalGoalsStorage } from "@/app/_common/_util/storage";
+import { timeFormat } from "../../utils";
 
 export default function WorkoutGoalPage() {
   const router = useRouter();
@@ -17,13 +19,20 @@ export default function WorkoutGoalPage() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const workoutList = workoutElList.map((workoutEl) => {
-      const week = formData.get(`week_${workoutEl.props.index}`);
-      const start = formData.get(`start_${workoutEl.props.index}`);
-      const end = formData.get(`end_${workoutEl.props.index}`);
+      const week = Number(formData.get(`week_${workoutEl.props.index}`));
+      const start = timeFormat(
+        String(formData.get(`start_${workoutEl.props.index}`))
+      );
+      const end = timeFormat(
+        String(formData.get(`end_${workoutEl.props.index}`))
+      );
       return { week, start, end };
     });
 
-    console.log(workoutList);
+    personalGoalsStorage.set({
+      ...personalGoalsStorage.get(),
+      workout: workoutList,
+    });
     router.push("/mypage");
   };
   return (
