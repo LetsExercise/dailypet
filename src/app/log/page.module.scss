@@ -74,4 +74,15 @@
 
     border-radius: 16px;
     background: $main-color;
+    
+    .log_input_info {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        align-self: stretch;
+    }
+    input {
+        width: 80px;
+        padding: 0 4px 0 4px;
+    }
 }
