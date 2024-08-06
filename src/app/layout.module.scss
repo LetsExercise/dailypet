@@ -1,15 +1,10 @@
 .child {
-//   background-color: red;
   width: 390px;
-//   border: 1px solid #000;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .parent {
-//   background-color: blue;
   width: 100%;
   display: flex;
-  justify-content: center;
-//   shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  
+  justify-content: center;  
 }
