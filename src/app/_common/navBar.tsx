@@ -7,9 +7,12 @@ export default function NavBar() {
   const mainColor = "#95cc3c";
   const blackColor = "#2C2C2C";
 
-  const [nowPage, setNowPage] = useState<string | null>("home");
-
   const router = useRouter();
+  const slug = "home"  // router.query;
+
+  const [nowPage, setNowPage] = useState<string | string[] | undefined>(slug);
+
+  
   const clickHome = () => {
     setNowPage("home");
     router.push("/home");
@@ -26,6 +29,7 @@ export default function NavBar() {
     setNowPage("mypage");
     router.push("/mypage");
   };
+
 
   return (
     <div>
