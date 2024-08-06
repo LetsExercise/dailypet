@@ -1,8 +1,27 @@
+'use client';
 import Link from "next/link";
 import Logo from "./_common/Logo";
 import styles from "./page.module.scss";
-
+// import Router, {useRouter} from "next/router";
+import { useRouter } from "next/navigation";
+import { useEffect} from "react";
 export default function Home() {
+  
+  // 만약이 로그아웃기능이 생기면 사용  *******************
+  // const router = useRouter();
+  // useEffect(()=>{
+  //   const checkFirebaseKey = () => {
+  //     for (let i = 0; i < localStorage.length; i++) {
+  //       const key = localStorage.key(i);
+  //       if (key && key.startsWith('firebase:')) {
+  //         router.push('/home');
+  //         break;
+  //       }
+  //     }
+  //   };
+  //   checkFirebaseKey();
+  // }, [])
+  // ***************************************
   return (
     <main className={styles.main}>
       <div />
