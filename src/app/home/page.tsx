@@ -43,7 +43,7 @@ export default function HomePage() {
           </div>
           
         </div>
-      <NavBar></NavBar>
+      <NavBar currentPage={"home"}></NavBar>
     </div>
   );
 }

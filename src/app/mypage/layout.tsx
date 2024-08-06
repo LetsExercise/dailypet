@@ -2,6 +2,7 @@
 
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import React from "react";
 
 export default function GoalsLayout({
   children,

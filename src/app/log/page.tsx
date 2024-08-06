@@ -38,7 +38,7 @@ export default function LogPage() {
         <DietLog />
         <WorkoutLog />
       </div>
-      <NavBar ></NavBar>
+      <NavBar currentPage={"log"}></NavBar>
     </div>
   );
 }
