@@ -6,7 +6,7 @@ const initStorage = <T extends keyof StorageKey>(key: T, storage: Storage) => {
 
         return JSON.parse(value as string);
     };
-    const set = (value: StorageKey[T]) => {
+    const set = (value?: StorageKey[T]) => {
         if (value == undefined || value == null) {
         return storage.removeItem(storageKey);
         }
@@ -22,23 +22,23 @@ const initStorage = <T extends keyof StorageKey>(key: T, storage: Storage) => {
 export const personalGoalsStorage = initStorage("personalGoals", sessionStorage);
 
 export interface PersonalGoals{
-    diet: {
+    diet?: {
         calories: number;
         dietTime: {
             label: string;
             time: number;
         }[];
-    } | null;
-    sleep: {
+    };
+    sleep?: {
         sleepEnd: number;
         sleepStart: number;
-    } | null;
-    workout: {
+    };
+    workout?: {
         week: number;
         start: number;
         end: number;
-    }[] | null;
+    }[];
 }
 interface StorageKey {
-    personalGoals: PersonalGoals;
+    personalGoals?: PersonalGoals;
 }
