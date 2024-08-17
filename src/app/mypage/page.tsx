@@ -21,7 +21,7 @@ export default function MyPage() {
           ? "목표를 설정해주세요"
           : data.diet?.calories}
       </div>
-      <Link href="/mypage/personalGoals">식단 목표 설정하기</Link>
+      <Link href="/mypage/personalGoals">목표 설정하기</Link>
       <NavBar currentPage={"mypage"}></NavBar>
     </div>
   );
