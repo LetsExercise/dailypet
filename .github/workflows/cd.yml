@@ -28,5 +28,5 @@ jobs:
           git pull
           git checkout main
           npm install
-          pm2 restart dailypet-dev || pm2 start npm --name "dailypet-dev" -- run start
+          pm2 restart dailypet-dev || pm2 start npm --name "dailypet-dev" -- run dev
         EOF
